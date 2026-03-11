@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGSS Admin Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/admin/admin.css">
+    <style>
+        .split-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .list-container {
+            border: 1px solid #ddd;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .list-item {
+            background: #f9f9f9;
+            padding: 10px;
+            margin-bottom: 5px;
+            border: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Login Container -->
+    <div id="login-container" class="auth-wrapper">
+        <div class="auth-box">
+            <h2>Admin Login</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Log In</button>
+                <div id="login-error" class="error-text"></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Dashboard Container -->
+    <div id="dashboard-container" class="dashboard-wrapper hidden">
+        <header class="admin-header">
+            <div class="header-content">
+                <h1>SGSS Site Manager</h1>
+                <button id="logout-btn" class="btn btn-outline">Logout</button>
+            </div>
+        </header>
+
+        <main class="admin-main">
+            <aside class="admin-sidebar" style="min-width: 250px;">
+                <nav>
+                    <button class="nav-btn active" data-target="hero-section">Hero Section</button>
+                    <button class="nav-btn" data-target="wwd-section">What We Do</button>
+                    <button class="nav-btn" data-target="impact-section">Impact & Partners</button>
+                    <button class="nav-btn" data-target="why-section">Why This Matters</button>
+                    <button class="nav-btn" data-target="donations-section">Donations</button>
+                    <button class="nav-btn" data-target="partner-section">Partner With Us</button>
+                    <button class="nav-btn" data-target="footer-section">Footer & Contact</button>
+                </nav>
+            </aside>
+
+            <div class="admin-content" style="flex: 1;">
+
+                <!-- 1. HERO SECTION -->
+                <section id="hero-section" class="admin-panel active">
+                    <h2>Hero Section</h2>
+                    <form id="hero-text-form" class="mt-3">
+                        <div class="form-group">
+                            <label>Headline</label>
+                            <input type="text" id="hero-headline" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Subtext</label>
+                            <textarea id="hero-subtext" rows="3"></textarea>
+                        </div>
+                        <div class="split-form">
+                            <div class="form-group">
+                                <label>Primary Button Text</label>
+                                <input type="text" id="hero-btn-primary">
+                            </div>
+                            <div class="form-group">
+                                <label>Secondary Button Text</label>
+                                <input type="text" id="hero-btn-secondary">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Trust Badges (Comma-separated)</label>
+                            <input type="text" id="hero-badges">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save Hero Text</button>
+                        <span id="hero-text-status" class="status-msg"></span>
+                    </form>
+
+                    <h3 class="mt-3">Slideshow Images</h3>
+                    <div class="image-grid" id="hero-images-grid"></div>
+                    <form id="hero-upload-form" class="mt-3">
+                        <input type="file" id="hero-file-input" accept="image/*" required>
+                        <button type="submit" class="btn btn-primary" id="hero-upload-btn">Upload Slide</button>
+                        <span id="hero-upload-status" class="status-msg"></span>
+                    </form>
+                </section>
+
+                <!-- 2. WHAT WE DO -->
+                <section id="wwd-section" class="admin-panel">
+                    <h2>What We Do</h2>
+                    <form id="wwd-text-form" class="mt-3">
+                        <div class="form-group">
+                            <label>Section Title</label>
+                            <input type="text" id="wwd-title">
+                        </div>
+                        <div class="form-group">
+                            <label>Section Subtitle</label>
+                            <textarea id="wwd-subtitle" rows="2"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save Text</button>
+                        <span id="wwd-text-status" class="status-msg"></span>
+                    </form>
+
+                    <h3 class="mt-3">Process Cards</h3>
+                    <div id="wwd-cards-list" class="list-container"></div>
+                    <form id="wwd-add-card-form" class="mt-3">
+                        <div class="split-form">
+                            <div class="form-group"><label>Step Number</label><input type="text" id="wwd-card-step"
+                                    required></div>
+                            <div class="form-group"><label>Title</label><input type="text" id="wwd-card-title" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea id="wwd-card-desc" rows="2" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-outline-primary">Add Process Card</button>
+                    </form>
+                </section>
+
+                <!-- 3. IMPACT CARDS -->
+                <section id="impact-section" class="admin-panel">
+                    <h2>Our Impact & Partners</h2>
+                    <form id="impact-text-form" class="mt-3">
+                        <div class="form-group"><label>Section Title</label><input type="text" id="impact-title"></div>
+                        <div class="form-group"><label>Section Subtitle</label><textarea id="impact-subtitle"
+                                rows="2"></textarea></div>
+                        <button type="submit" class="btn btn-primary">Save Text</button>
+                    </form>
+
+                    <h3 class="mt-3">Impact Cards</h3>
+                    <div class="cards-list" id="impact-cards-list"></div>
+
+                    <div class="add-card-box mt-3">
+                        <h4>Add New Impact Card</h4>
+                        <form id="add-card-form">
+                            <div class="split-form">
+                                <div class="form-group"><label>Title</label><input type="text" id="card-title" required>
+                                </div>
+                                <div class="form-group"><label>Subtitle / Partner</label><input type="text"
+                                        id="card-subtitle" required></div>
+                            </div>
+                            <div class="form-group"><label>Description</label><textarea id="card-desc" rows="3"
+                                    required></textarea></div>
+                            <div class="split-form">
+                                <div class="form-group"><label>Donor</label><input type="text" id="card-donor"></div>
+                                <div class="form-group"><label>Year</label><input type="text" id="card-year"></div>
+                            </div>
+                            <div class="split-form">
+                                <div class="form-group"><label>Status</label><input type="text" id="card-status-input"
+                                        value="Ongoing"></div>
+                                <div class="form-group"><label>Image</label><input type="file" id="card-image-input"
+                                        accept="image/*" required></div>
+                            </div>
+                            <button type="submit" class="btn btn-primary" id="card-add-btn">Create Card</button>
+                            <span id="card-status" class="status-msg"></span>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- 4. WHY THIS MATTERS -->
+                <section id="why-section" class="admin-panel">
+                    <h2>Why This Matters</h2>
+                    <form id="why-form" class="mt-3">
+                        <div class="form-group"><label>Title</label><input type="text" id="why-title"></div>
+                        <div class="form-group">
+                            <label>Paragraphs (One paragraph per line. Use &lt;strong&gt;text&lt;/strong&gt; for
+                                bolding.)</label>
+                            <textarea id="why-paragraphs" rows="10"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save Section</button>
+                        <span id="why-status" class="status-msg"></span>
+                    </form>
+                </section>
+
+                <!-- 5. DONATIONS -->
+                <section id="donations-section" class="admin-panel">
+                    <h2>Donations</h2>
+                    <form id="don-text-form" class="mt-3">
+                        <div class="form-group"><label>Title</label><input type="text" id="don-title"></div>
+                        <div class="form-group"><label>Subtitle</label><textarea id="don-subtitle" rows="2"></textarea>
+                        </div>
+                        <div class="form-group"><label>Gateway Integration Details</label><textarea id="don-gateway"
+                                rows="2"></textarea></div>
+                        <button type="submit" class="btn btn-primary">Save Text</button>
+                    </form>
+
+                    <h3 class="mt-3">Donation Tiers</h3>
+                    <div id="don-tiers-list" class="list-container"></div>
+                    <form id="don-add-tier-form" class="mt-3">
+                        <div class="split-form">
+                            <div class="form-group"><label>Amount (e.g. ₹1,000)</label><input type="text"
+                                    id="tier-amount" required></div>
+                            <div class="form-group"><label>Button Text</label><input type="text" id="tier-btn" required>
+                            </div>
+                        </div>
+                        <div class="form-group"><label>Impact Description</label><input type="text" id="tier-impact"
+                                required></div>
+                        <div class="form-group"><label><input type="checkbox" id="tier-popular"> Mark as Most
+                                Popular</label></div>
+                        <button type="submit" class="btn btn-outline-primary">Add Tier</button>
+                    </form>
+                </section>
+
+                <!-- 6. PARTNERS -->
+                <section id="partner-section" class="admin-panel">
+                    <h2>Partner With Us</h2>
+                    <form id="partner-form" class="mt-3">
+                        <div class="split-form">
+                            <div class="form-group"><label>Main Title</label><input type="text" id="partner-title">
+                            </div>
+                            <div class="form-group"><label>Main Subtitle</label><input type="text"
+                                    id="partner-subtitle"></div>
+                        </div>
+                        <div class="split-form">
+                            <div class="form-group"><label>Intro Heading</label><input type="text"
+                                    id="partner-intro-head"></div>
+                            <div class="form-group"><label>Intro Text</label><textarea id="partner-intro-text"
+                                    rows="2"></textarea></div>
+                        </div>
+                        <div class="split-form">
+                            <div class="form-group"><label>Contact Email</label><input type="email" id="partner-email">
+                            </div>
+                            <div class="form-group"><label>Contact Button Prefix</label><input type="text"
+                                    id="partner-btn"></div>
+                        </div>
+                        <div class="form-group"><label>Compliance Badges (Comma-separated)</label><input type="text"
+                                id="partner-badges"></div>
+                        <button type="submit" class="btn btn-primary">Save General Text</button>
+                    </form>
+
+                    <h3 class="mt-3">Features</h3>
+                    <p class="text-muted">Use raw JSON edit for now to edit nested bullet points.</p>
+                    <textarea id="partner-features-json" rows="8" style="width:100%; font-family:monospace;"></textarea>
+                    <button id="save-partner-features-btn" class="btn btn-outline-primary mt-2">Save Features
+                        Schema</button>
+                </section>
+
+                <!-- 7. FOOTER -->
+                <section id="footer-section" class="admin-panel">
+                    <h2>Footer & Contact Details</h2>
+                    <form id="footer-form" class="mt-3">
+                        <div class="split-form">
+                            <div class="form-group"><label>Brand Tagline</label><input type="text" id="foot-tagline">
+                            </div>
+                            <div class="form-group"><label>Certification Text</label><input type="text" id="foot-cert">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Emails (Comma-separated)</label><input type="text" id="foot-emails">
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Numbers (Comma-separated)</label><input type="text" id="foot-phones">
+                        </div>
+                        <div class="form-group">
+                            <label>Copyright Year & Entity</label><input type="text" id="foot-copy">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save Footer</button>
+                        <span id="foot-status" class="status-msg"></span>
+                    </form>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Edit Impact Card Modal -->
+    <div id="edit-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn" id="close-edit-modal">&times;</span>
+            <h2>Edit Impact Card</h2>
+            <form id="edit-card-form">
+                <input type="hidden" id="edit-card-id">
+                <div class="split-form">
+                    <div class="form-group"><label>Title</label><input type="text" id="edit-card-title" required></div>
+                    <div class="form-group"><label>Subtitle / Partner</label><input type="text" id="edit-card-subtitle"
+                            required></div>
+                </div>
+                <div class="form-group"><label>Description</label><textarea id="edit-card-desc" rows="3"
+                        required></textarea></div>
+                <div class="split-form">
+                    <div class="form-group"><label>Donor</label><input type="text" id="edit-card-donor"></div>
+                    <div class="form-group"><label>Year</label><input type="text" id="edit-card-year"></div>
+                </div>
+                <div class="split-form">
+                    <div class="form-group"><label>Status</label><input type="text" id="edit-card-status-input"></div>
+                    <div class="form-group">
+                        <label>Image (Leave blank to keep)</label>
+                        <input type="file" id="edit-card-image-input" accept="image/*">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="edit-card-visible"> Visible on Website
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary" id="card-save-btn">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/admin/admin.js"></script>
+</body>
+
+</html>

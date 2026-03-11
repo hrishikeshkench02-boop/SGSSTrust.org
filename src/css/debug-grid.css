@@ -1,0 +1,29 @@
+/* Temporary Debug Grid */
+body.show-grid {
+    position: relative;
+}
+
+body.show-grid::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    /* Let clicks pass through */
+    z-index: 9999;
+
+    /* Grid Pattern */
+    background-size: 100px 100px, 100px 100px, 25px 25px, 25px 25px;
+    background-image:
+        /* Major lines (100px) - Red */
+        linear-gradient(rgba(255, 0, 0, 0.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 0, 0, 0.3) 1px, transparent 1px),
+        /* Minor lines (25px) - Blue */
+        linear-gradient(rgba(0, 0, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 255, 0.1) 1px, transparent 1px);
+
+    /* Offset to match standard layout if needed, usually 0 is fine */
+    background-position: -1px -1px;
+}

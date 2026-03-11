@@ -1,0 +1,187 @@
+{
+  "hero": {
+    "slides": [
+      "src/assets/placeholders/skill_training.png",
+      "src/assets/uploads/1772260425602-409214610.jpg"
+    ],
+    "headline": "Real Skills. Real Jobs.<br>Real Dignity.",
+    "subtext": "SGSS empowers school dropouts and graduates with employment-oriented skills, placing them in sustainable jobs to break the cycle of poverty.",
+    "badges": [
+      "7+ Years Impact",
+      "12A & 80G Registered",
+      "Trusted Implementation Partner"
+    ],
+    "primaryDonateBtn": "Donate to the Cause",
+    "secondaryPartnerBtn": "Partner With Us"
+  },
+  "whatWeDo": {
+    "title": "What We Do",
+    "subtitle": "We bridge the gap between education and employment through targeted skill development.",
+    "cards": [
+      {
+        "id": "wwd-1",
+        "step": "01",
+        "title": "Train",
+        "description": "Converting potential into professional capability. We equip dropouts and graduates with industry-ready technical skills."
+      },
+      {
+        "id": "wwd-2",
+        "step": "02",
+        "title": "Place",
+        "description": "Skills mean nothing without opportunity. We actively place beneficiaries into stable jobs, ensuring financial independence."
+      },
+      {
+        "id": "wwd-3",
+        "step": "03",
+        "title": "Empower",
+        "description": "Building stronger communities. We fund women entrepreneurs and modernize government schools to create lasting generational change."
+      }
+    ]
+  },
+  "impact": {
+    "title": "Our Impact & Partners",
+    "subtitle": "Delivering proven results through long-term collaborations with industry leaders.",
+    "cards": [
+      {
+        "id": "card-1",
+        "title": "Skill Training & Placement",
+        "subtitle": "Smile Foundation",
+        "description": "bla bla bla bla bla\n",
+        "donor": "Bajaj Finserv",
+        "year": "2023-2025",
+        "status": "Ongoing",
+        "image": "src/assets/uploads/1772259084510-725074233.jpg",
+        "visible": true
+      },
+      {
+        "id": "card-2",
+        "title": "Education Initiatives",
+        "subtitle": "ITU Foundation",
+        "description": "Building the foundation for future generations through holistic school adoption.",
+        "donor": "ITU Foundation",
+        "year": "2023-2025",
+        "status": "Ongoing",
+        "image": "src/assets/placeholders/education_class.png",
+        "visible": true
+      },
+      {
+        "id": "card-3",
+        "title": "Community Empowerment",
+        "subtitle": "Pure India Trust",
+        "description": "Fostering independence and resilience.",
+        "donor": "COLT",
+        "year": "2020-2025",
+        "status": "Ongoing",
+        "image": "src/assets/placeholders/community_growth.png",
+        "visible": true
+      }
+    ]
+  },
+  "whyThisMatters": {
+    "title": "Why This Matters",
+    "paragraphs": [
+      "Charity is temporary, but dignity is permanent. By focusing on <strong>employment</strong>, we provide families with a steady income, not just a one-time handout.",
+      "Whether it's a dropout finding a career or a woman starting her own business, every success story ripples through the entire community."
+    ]
+  },
+  "donations": {
+    "title": "Donate to the Cause",
+    "subtitle": "Donations to SGSS Trust are exempt from Income Tax under Section 80G.",
+    "gatewayIntegrationText": "(User to Confirm: Razorpay / Stripe details goes here)",
+    "tiers": [
+      {
+        "id": "don-1",
+        "amount": "₹1,000",
+        "impact": "Sponsors <strong>one month of skill training materials</strong> for a student.",
+        "buttonText": "Choose ₹1,000",
+        "isPopular": false
+      },
+      {
+        "id": "don-2",
+        "amount": "₹5,000",
+        "impact": "Provides a <strong>complete smart classroom kit</strong> for a rural school.",
+        "buttonText": "Choose ₹5,000",
+        "isPopular": true
+      },
+      {
+        "id": "don-3",
+        "amount": "₹10,000",
+        "impact": "Funds a <strong>small business grant</strong> for a woman entrepreneur.",
+        "buttonText": "Choose ₹10,000",
+        "isPopular": false
+      }
+    ]
+  },
+  "partners": {
+    "title": "Partner With Us",
+    "subtitle": "A trusted, compliant implementation partner for Corporate Social Responsibility (CSR).",
+    "introHeading": "Why Partner With SGSS Trust",
+    "introText": "SGSS Trust is a registered charitable trust serving the community with education, digital literacy, and empowerment programs.",
+    "badges": [
+      "12A Registered",
+      "80G Tax Exempt",
+      "NITI Aayog Darpan Listed"
+    ],
+    "contactEmail": "saigokulasevasamsthe@gmail.com",
+    "contactBtnText": "Let's Collaborate",
+    "features": [
+      {
+        "id": "feat-1",
+        "title": "Full-Cycle Implementation",
+        "bullets": [
+          "<strong>End-to-End Execution:</strong> We handle planning, mobilization, training, and placement.",
+          "<strong>Targeted Impact:</strong> Programs tailored for Youth, Women, or School Development.",
+          "<strong>Transparent Reporting:</strong> Regular updates with photos, data, and beneficiary stories."
+        ]
+      },
+      {
+        "id": "feat-2",
+        "title": "Ease of Partnership",
+        "bullets": [
+          "<strong>Dedicated Point of Contact:</strong> Single manager for your project.",
+          "<strong>Custom Branding:</strong> Co-branded certificates and event banners.",
+          "<strong>Compliance First:</strong> All documentation and audits handled professionally."
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "brandTagline": "Empowerment through Employment.",
+    "brandCertText": "Registered NGO | 12A & 80G Certified",
+    "emails": [
+      "saigokulasevasamsthe@gmail.com",
+      "info@sgsstrust.org"
+    ],
+    "phones": [
+      "+91 9945 329 169",
+      "+91 9019 555 537"
+    ],
+    "social": [
+      {
+        "id": "soc-1",
+        "icon": "📸",
+        "name": "Instagram",
+        "url": "https://www.instagram.com/saigokulasevasamsthetrust/"
+      },
+      {
+        "id": "soc-2",
+        "icon": "📘",
+        "name": "Facebook",
+        "url": "https://www.facebook.com/people/Sgsst-Rajendra/pfbid02sCosVVZqXrpdekw8fQV9RVuFRYCyUkJjLLsWp3nUWuKRwEYM1MjasTBAG2DpjZaMl/"
+      },
+      {
+        "id": "soc-3",
+        "icon": "💼",
+        "name": "LinkedIn",
+        "url": "https://www.linkedin.com/in/sgsstrust/"
+      },
+      {
+        "id": "soc-4",
+        "icon": "📺",
+        "name": "YouTube",
+        "url": "https://www.youtube.com/@SaiGokula"
+      }
+    ],
+    "copyright": "2025 SGSS. All rights reserved."
+  }
+}
